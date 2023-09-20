@@ -17,8 +17,6 @@ import androidx.lifecycle.Lifecycle
 class HelloWorldService: CarAppService() {
     private var connState: Boolean = false // This variable controls the car-device connection status.
 
-    //private val listeners = mutableListOf<CarServiceListener>()
-    //private val binder = AutoAppBinder()
 
     // Singleton object for giving access to variables or functions from out of this class. (Alternative to Intents)
     companion object {
@@ -26,7 +24,6 @@ class HelloWorldService: CarAppService() {
     }
 
     override fun onCreateSession(): Session {
-        //CarConnection(carContext)
         sInstance = this
         connState = true
         return HelloWorldSession()
@@ -38,22 +35,11 @@ class HelloWorldService: CarAppService() {
     }
 
     override fun createHostValidator(): HostValidator {
-        /*return if (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0) {
-            HostValidator.ALLOW_ALL_HOSTS_VALIDATOR
-        } else {
-            HostValidator.Builder(applicationContext)
-                .addAllowedHosts(androidx.car.app.R.array.hosts_allowlist_sample)
-                .build()
-        }*/
+
         return HostValidator.ALLOW_ALL_HOSTS_VALIDATOR
     }
 
 
-    /*inner class AutoAppBinder: Binder() {
-        fun getService(): HelloWorldService = this@HelloWorldService
-    }*/
-
-    // This seems not to work. But it's supposed to change the connState variable if the device is disconnected or connected to the car head unit.
     private fun onConnectionStateUpdated(connectionState: Int) {
         val message = when(connectionState) {
             CarConnection.CONNECTION_TYPE_NOT_CONNECTED -> "Not connected to a head unit"
