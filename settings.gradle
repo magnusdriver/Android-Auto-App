@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://www.datanucleus.org/downloads/maven2/' }
+        maven { url 'https://repo.eclipse.org/content/repositories/paho-snapshots/' }
+        maven { url 'https://mvnrepository.com/artifact/org.apache.avro/avro-android' }
+    }
+}
+rootProject.name = 'MasMovilCarApp'
+include ':app'
+include ':autoapp'
+include ':mqttservice'
+include ':messagingservice'

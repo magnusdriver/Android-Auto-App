@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">mqttservice</string>
+
+    <string name="mqtt_broker_ip">tcp://192.168.137.2:1883</string>
+
+    <string name="client_id">u0001</string>
+    <string name="mqtt_user">test_user</string>
+    <string name="mqtt_passwd">supersecurepass</string>
+
+    <string name="channel_id">com.example.masmovilcarapp.notificaction_channel</string>
+    <string name="channel_name">test-channel-2</string>
+    <string name="channel_description">A testing channel with MQTT</string>
+
+
+
+</resources>
